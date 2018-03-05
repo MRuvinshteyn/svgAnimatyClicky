@@ -4,16 +4,17 @@
 //2018 - 03 - 04
 
 var svg = document.getElementById('vimage'); 
-var size = 0
-var grow = 1; 
-var x = 290;
-var y = 300; 
-var dx = Math.random()*2 + 1;
-var dy = Math.random()*2 + 1; 
-var path = 'dvd.png';
+var size;
+var grow; 
+var x;
+var y; 
+var dx;
+var dy; 
+var path;
 var frame;
-var doAnim = false; 
-var animation = 0;
+var doAnim; 
+var animation;
+var maxRad;
 
 var main = function() {
     svg = document.getElementById('vimage');
@@ -26,6 +27,7 @@ var main = function() {
     dy = Math.random()*2 + 1;
     doAnim = false;
     animation = 0;
+    maxRad = 50;
 
     path = 'dvd.png';
 }
@@ -43,7 +45,7 @@ var drawExpand = function() {
 
 var expand = function() {
     size += grow;
-    if (size < 0 || size > 60) {
+    if (size < 0 || size > 50) {
         grow *= -1;
     }
 
@@ -73,7 +75,8 @@ var shift = function() {
         dx *= -1;
         if (x - 50 < 0) {
             x = 50;
-        } else {
+        } 
+        else {
             x = 600 - 50;
         }
     }
@@ -81,7 +84,8 @@ var shift = function() {
         dy *= -1;
         if (y - 25 < 0) {
             y = 25;
-        } else {
+        } 
+        else {
             y = 600 - 25;
         }
     }
